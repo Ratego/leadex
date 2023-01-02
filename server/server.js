@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get('/', async (req, res) => {
-    req.status(200).send({
+    res.status(200).send({
         message: 'Hello from Leadex',
     })
 });
@@ -31,7 +31,7 @@ app.post('/', async (req, res) => {
             frequency_penalty: 0.5,
             presence_penalty: 0,
         });
-        req.status(200).send({
+        res.status(200).send({
             bot: response.data.choices[0].text
         })
     } catch (error) {
